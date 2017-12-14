@@ -50,7 +50,7 @@ action :create do
   end
 
   cron_d "barman_backup_for_#{new_resource.name}" do
-    command "barman backup #{new_resource.name}"
+    command "barman backup #{new_resource.name} > /dev/null"
     user user
     minute full_backup_time[:minute]
     hour full_backup_time[:hour]
